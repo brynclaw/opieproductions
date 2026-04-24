@@ -4865,6 +4865,13 @@ img {
   background: linear-gradient(135deg, #2a3a35, #1a2520);
   border-radius: 10px;
   margin-bottom: 15px;
+  overflow: hidden;
+}
+.about-team__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .about-team__card-name {
@@ -5446,6 +5453,14 @@ img {
   height: 280px;
   background: linear-gradient(135deg, #2a3a35, #1a2520);
   position: relative;
+  overflow: hidden;
+}
+.portfolio-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .portfolio-card__body {
