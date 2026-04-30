@@ -567,12 +567,19 @@ img {
   color: var(--secondary);
 }
 
-.service__content {
+.service__body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   min-width: 0;
+}
+
+/* Header row: title + button + arrow aligned on same line */
+.service__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .service__title {
@@ -590,11 +597,20 @@ img {
   opacity: 1;
 }
 
-/* Details wrapper for smooth expand/collapse */
-.service__details {
+.service__actions-top {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Hide the CTA button when collapsed, show only arrow */
+.service--collapsed .service__actions-top .btn {
+  display: none;
+}
+
+/* Details: description + tags, expands/collapses below header */
+.service__details {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
@@ -605,7 +621,7 @@ img {
 .service--expanded .service__details {
   max-height: 400px;
   opacity: 1;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .service__description {
@@ -613,7 +629,6 @@ img {
   font-size: 18px;
   line-height: 1.3;
   color: var(--muted);
-  flex: 1;
 }
 
 .service__description p {
@@ -624,25 +639,12 @@ img {
   margin-bottom: 0;
 }
 
-.service__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  align-self: stretch;
-  flex-shrink: 0;
-}
-
-.service__actions-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .service__tags {
   display: flex;
   gap: 10px;
   position: relative;
+  margin-top: 15px;
+  justify-content: flex-end;
 }
 
 .service__tag {
@@ -1379,12 +1381,8 @@ img {
   .service__title {
     font-size: 36px;
   }
-  .service__details {
-    flex-direction: column;
-  }
-  .service__actions {
-    align-self: flex-start;
-    width: 100%;
+  .service__header {
+    flex-wrap: wrap;
   }
   .cta-card {
     height: auto;
