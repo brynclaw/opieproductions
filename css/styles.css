@@ -194,6 +194,67 @@ img {
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  position: relative;
+}
+
+.nav__dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.nav__dropdown:hover .nav__dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 15px;
+  background-color: var(--dark-green);
+  border: 1px solid rgba(240, 239, 235, 0.1);
+  border-radius: 12px;
+  padding: 10px 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(5px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+  z-index: 100;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav__dropdown:hover .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Bridge the gap between trigger and menu so hover doesn't break */
+.nav__dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 15px;
+}
+
+.nav__dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cream);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav__dropdown-item:hover {
+  background-color: rgba(33, 202, 254, 0.1);
+  color: var(--cyan);
 }
 
 .nav__right {
