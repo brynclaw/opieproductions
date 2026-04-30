@@ -18,20 +18,17 @@
   --white: #ffffff;
 
   /* Fonts */
-  --font-display: 'Georgia', 'Times New Roman', serif; /* Fallback for Sewimple Pol */
+  --font-display: 'Sewimple Pol', sans-serif;
   --font-body: 'Manrope', sans-serif;
 }
 
-/*
-  NOTE: The design uses "Sewimple Pol" as the display font.
-  Replace the @font-face below with the actual font file if available.
-  For now, we use a serif fallback that approximates the feel.
-*/
 @font-face {
   font-family: 'Sewimple Pol';
-  src: local('Sewimple Pol');
+  src: url('../fonts/SewimplePol.woff2') format('woff2'),
+       url('../fonts/SewimplePol.woff') format('woff');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 html {
@@ -63,7 +60,7 @@ img {
   justify-content: center;
   padding: 15px 30px 13px;
   border-radius: 100px;
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 20px;
   line-height: normal;
   text-transform: capitalize;
@@ -162,7 +159,7 @@ img {
 }
 
 .nav__logo-text {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 14px;
   line-height: 1.2;
   color: var(--cream);
@@ -177,7 +174,7 @@ img {
 
 .nav__links a,
 .nav__dropdown span {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 16px;
   color: var(--cream);
   white-space: nowrap;
@@ -325,7 +322,7 @@ img {
 }
 
 .hero__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--dark-text);
@@ -451,7 +448,7 @@ img {
 }
 
 .marquee__content span {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   line-height: 1.2;
   color: var(--dark-text);
@@ -504,7 +501,7 @@ img {
 }
 
 .expertise__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -583,7 +580,7 @@ img {
 }
 
 .service__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -680,7 +677,7 @@ img {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  margin-top: 200px;
+  margin-top: 60px;
 }
 
 .cta-card__tags {
@@ -729,7 +726,7 @@ img {
 }
 
 .cta-card__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--dark-text);
@@ -778,7 +775,7 @@ img {
 }
 
 .selected-project__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
@@ -892,7 +889,7 @@ img {
 }
 
 .reviews__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
@@ -1043,7 +1040,7 @@ img {
 }
 
 .review-card__name {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   line-height: 1.2;
   color: var(--white);
@@ -1067,7 +1064,7 @@ img {
 }
 
 .review-card__quote {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 80px;
   line-height: 0.5;
   color: var(--cyan);
@@ -1082,7 +1079,7 @@ img {
 }
 
 .review-card__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   line-height: 1.2;
   color: var(--white);
@@ -1139,7 +1136,7 @@ img {
 }
 
 .footer__cta-heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -1251,7 +1248,7 @@ img {
 }
 
 .footer__nav-link {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 18px;
   color: var(--muted);
   display: flex;
@@ -1627,7 +1624,7 @@ img {
 }
 
 .page-hero__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   text-transform: capitalize;
@@ -1716,7 +1713,7 @@ img {
 }
 
 .value-prop__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--dark-text);
@@ -1790,7 +1787,7 @@ img {
 }
 
 .service-detail__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -1826,7 +1823,7 @@ img {
 }
 
 .service-detail__card-title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   line-height: 1.2;
   color: var(--white);
@@ -1853,25 +1850,25 @@ img {
 }
 
 .service-detail__font-name {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--cyan);
 }
 
 .service-detail__font-sample {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 20px;
   color: var(--muted);
 }
 
 .service-detail__font-numbers {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 20px;
   color: var(--muted);
 }
 
 .service-detail__card-cta-label {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--cyan);
 }
@@ -1925,7 +1922,7 @@ img {
 }
 
 .seo-stats__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -1957,7 +1954,7 @@ img {
 }
 
 .seo-stats__number {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 80px;
   line-height: 1;
   color: var(--cyan);
@@ -1999,7 +1996,7 @@ img {
 }
 
 .approach__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -2053,7 +2050,7 @@ img {
 }
 
 .approach__step-title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -2078,7 +2075,7 @@ img {
 }
 
 .approach__cta-label {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   color: var(--white);
   text-transform: capitalize;
@@ -2135,7 +2132,7 @@ img {
 }
 
 .content-section__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   text-transform: capitalize;
@@ -2220,7 +2217,7 @@ img {
   color: var(--dark-text);
   padding: 20px 40px;
   border-radius: 100px;
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 20px;
   text-transform: capitalize;
 }
@@ -2259,14 +2256,14 @@ img {
 }
 
 .tech-card__stat {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   color: var(--cyan);
   font-weight: 400;
 }
 
 .tech-card__label {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--white);
   font-weight: 400;
@@ -2299,7 +2296,7 @@ img {
 }
 
 .expertise-grid__card-title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 28px;
   line-height: 1.2;
   color: var(--white);
@@ -2322,7 +2319,7 @@ img {
 }
 
 .what-you-get__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   color: var(--white);
   font-weight: 400;
@@ -2370,7 +2367,7 @@ img {
 }
 
 .cta-banner__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -2408,7 +2405,7 @@ img {
 }
 
 .team-card__name {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--white);
   font-weight: 400;
@@ -2431,7 +2428,7 @@ img {
 }
 
 .awards-section__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
@@ -2443,7 +2440,7 @@ img {
 }
 
 .awards-section__subtitle {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--cyan);
@@ -2538,7 +2535,7 @@ img {
 }
 
 .pricing-card__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   color: var(--white);
   font-weight: 400;
@@ -2553,7 +2550,7 @@ img {
 }
 
 .pricing-card__price {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   color: var(--cyan);
   font-weight: 400;
@@ -2847,7 +2844,7 @@ img {
 }
 
 .project-details__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
@@ -2887,7 +2884,7 @@ img {
 }
 
 .project-details__meta-value {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 20px;
   color: var(--dark-text);
   font-weight: 400;
@@ -2909,7 +2906,7 @@ img {
 }
 
 .project-content__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--dark-text);
@@ -2958,7 +2955,7 @@ img {
 }
 
 .project-content__stat-number {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 56px;
   line-height: 1;
   color: var(--cyan);
@@ -2985,7 +2982,7 @@ img {
 }
 
 .project-more__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -3109,7 +3106,7 @@ img {
 }
 
 .portfolio-category__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -3201,7 +3198,7 @@ img {
 }
 
 .pricing-wizard__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -3249,7 +3246,7 @@ img {
 }
 
 .pricing-wizard__question {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 36px;
   line-height: 1.2;
   color: var(--white);
@@ -3455,7 +3452,7 @@ img {
 }
 
 .sp-hero__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--white);
@@ -3533,7 +3530,7 @@ img {
 }
 
 .sp-brand-cta__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--dark-text);
@@ -3608,7 +3605,7 @@ img {
 }
 
 .sp-services__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
@@ -3666,7 +3663,7 @@ img {
 }
 
 .sp-services__card-title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   line-height: 1;
   color: var(--dark-text);
@@ -3712,21 +3709,21 @@ img {
 }
 
 .sp-services__card-preview-font {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 18px;
   color: var(--secondary);
   text-transform: capitalize;
 }
 
 .sp-services__card-preview-sample {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--dark-text);
   letter-spacing: 2.4px;
 }
 
 .sp-services__card-preview-numbers {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--dark-text);
   letter-spacing: 2.4px;
@@ -3955,7 +3952,7 @@ img {
 }
 
 .sp-dark-cta__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--white);
@@ -4032,7 +4029,7 @@ img {
 }
 
 .sp-seo__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -4069,7 +4066,7 @@ img {
 }
 
 .sp-seo__stat-value {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -4125,7 +4122,7 @@ img {
 }
 
 .sp-approach__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -4178,7 +4175,7 @@ img {
 }
 
 .sp-approach__step-title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -4235,7 +4232,7 @@ img {
 }
 
 .sp-pricing-cta__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--dark-text);
@@ -4420,7 +4417,7 @@ img {
 }
 
 .seo-clusters__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 72px;
   line-height: 1;
   color: var(--cream);
@@ -4447,7 +4444,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 32px;
   color: var(--white);
   font-weight: 600;
@@ -4535,7 +4532,7 @@ img {
 }
 
 .seo-stats__card-number {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--cyan);
@@ -4589,7 +4586,7 @@ img {
 }
 
 .seo-technical__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 72px;
   line-height: 1;
   color: var(--cream);
@@ -4859,7 +4856,7 @@ img {
 }
 
 .about-hero__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--white);
@@ -4921,7 +4918,7 @@ img {
 }
 
 .about-team__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
@@ -4976,7 +4973,7 @@ img {
 }
 
 .about-team__card-name {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 20px;
   color: var(--dark-text);
 }
@@ -4994,7 +4991,7 @@ img {
 }
 
 .about-awards__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
@@ -5041,7 +5038,7 @@ img {
 }
 
 .pricing-page__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--white);
@@ -5079,7 +5076,7 @@ img {
 }
 
 .pricing-wizard__question {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -5226,7 +5223,7 @@ img {
 }
 
 .project-detail-hero__title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--white);
@@ -5277,7 +5274,7 @@ img {
 }
 
 .project-about__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--dark-text);
@@ -5363,7 +5360,7 @@ img {
 }
 
 .project-more__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1;
   color: var(--white);
@@ -5403,7 +5400,7 @@ img {
 }
 
 .project-more__card-title {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 22px;
   color: var(--cream);
 }
@@ -5460,7 +5457,7 @@ img {
 }
 
 .portfolio-hero__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 96px;
   line-height: 1;
   color: var(--white);
@@ -5572,7 +5569,7 @@ img {
 }
 
 .portfolio-card__url {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 24px;
   color: var(--cream);
   text-transform: capitalize;
@@ -5615,7 +5612,7 @@ img {
 }
 
 .portfolio-callout__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 36px;
   line-height: 1.1;
   color: var(--cream);
@@ -5650,7 +5647,7 @@ img {
 }
 
 .portfolio-bottom-cta__heading {
-  font-family: 'Sewimple Pol', var(--font-display);
+  font-family: var(--font-display);
   font-size: 64px;
   line-height: 1;
   color: var(--dark-text);
