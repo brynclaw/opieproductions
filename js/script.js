@@ -1,42 +1,36 @@
-// ==================== SERVICES ACCORDION ====================
+// ==================== SERVICES ACCORDION (HOVER) ====================
 document.addEventListener('DOMContentLoaded', () => {
-  const services = document.querySelectorAll('.service--collapsed');
-  const expandedService = document.querySelector('.service--expanded');
+  const servicesList = document.querySelector('.services-list');
+  const allServices = document.querySelectorAll('.service');
 
-  services.forEach(service => {
-    service.addEventListener('click', () => {
-      // Collapse the currently expanded service
-      const currentExpanded = document.querySelector('.service--expanded');
-      if (currentExpanded) {
-        const title = currentExpanded.querySelector('.service__title').textContent;
-        const number = currentExpanded.querySelector('.service__number').textContent;
+  function expandService(service) {
+    // Skip if already expanded
+    if (service.classList.contains('service--expanded')) return;
 
-        currentExpanded.classList.remove('service--expanded');
-        currentExpanded.classList.add('service--collapsed');
+    // Collapse all services
+    allServices.forEach(s => {
+      s.classList.remove('service--expanded');
+      s.classList.add('service--collapsed');
+    });
 
-        // Remove description and actions
-        const desc = currentExpanded.querySelector('.service__description');
-        const actions = currentExpanded.querySelector('.service__actions');
-        if (desc) desc.style.display = 'none';
-        if (actions) actions.style.display = 'none';
+    // Expand the target
+    service.classList.remove('service--collapsed');
+    service.classList.add('service--expanded');
+  }
 
-        // Add arrow button if not present
-        if (!currentExpanded.querySelector('.arrow-btn')) {
-          const arrow = document.createElement('button');
-          arrow.className = 'arrow-btn arrow-btn--dark';
-          arrow.innerHTML = '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 12L12 1M12 1H3M12 1v9" stroke="#f0efeb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-          currentExpanded.appendChild(arrow);
-        }
-      }
+  // Hover to expand
+  allServices.forEach(service => {
+    service.addEventListener('mouseenter', () => {
+      expandService(service);
+    });
+  });
 
-      // Expand the clicked service
-      service.classList.remove('service--collapsed');
-      service.classList.add('service--expanded');
-
-      const desc = service.querySelector('.service__description');
-      const actions = service.querySelector('.service__actions');
-      if (desc) desc.style.display = 'block';
-      if (actions) actions.style.display = 'flex';
+  // Also support click/tap for mobile
+  allServices.forEach(service => {
+    service.addEventListener('click', (e) => {
+      // Don't interfere with link clicks inside expanded service
+      if (e.target.closest('a') && service.classList.contains('service--expanded')) return;
+      expandService(service);
     });
   });
 
@@ -136,78 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ==================== PRICING WIZARD FORM ====================
-  const pricingOptions = document.querySelectorAll('.pricing-wizard__option');
-  const nextBtn = document.getElementById('nextBtn');
-  const backBtn = document.getElementById('backBtn');
-  const progressDots = document.querySelectorAll('.pricing-wizard__progress-dot');
-  const wizardSteps = document.querySelectorAll('.pricing-wizard__step');
-
-  let currentStep = 1;
-  const totalSteps = 3;
-  const answers = {};
-
-  function updateProgressDots() {
-    progressDots.forEach((dot, index) => {
-      dot.classList.remove('pricing-wizard__progress-dot--active', 'pricing-wizard__progress-dot--completed');
-
-      if (index < currentStep - 1) {
-        dot.classList.add('pricing-wizard__progress-dot--completed');
-      } else if (index === currentStep - 1) {
-        dot.classList.add('pricing-wizard__progress-dot--active');
-      }
-    });
-  }
-
-  function showStep(step) {
-    wizardSteps.forEach(s => s.style.display = 'none');
-    const target = document.getElementById('step' + step);
-    if (target) {
-      target.style.display = 'block';
-    }
-
-    backBtn.style.display = step > 1 ? 'inline-flex' : 'none';
-    nextBtn.textContent = step === totalSteps ? 'Get Estimate' : 'Next Step';
-
-    updateProgressDots();
-    currentStep = step;
-  }
-
-  pricingOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const step = option.getAttribute('data-step');
-      const optionValue = option.getAttribute('data-option');
-      const siblings = option.parentElement.querySelectorAll('.pricing-wizard__option');
-
-      siblings.forEach(s => s.classList.remove('pricing-wizard__option--selected'));
-      option.classList.add('pricing-wizard__option--selected');
-
-      answers[`step${step}`] = optionValue;
-
-      setTimeout(() => {
-        if (currentStep < totalSteps) {
-          showStep(currentStep + 1);
-        }
-      }, 300);
-    });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentStep < totalSteps) {
-      showStep(currentStep + 1);
-    } else {
-      console.log('Form submitted with answers:', answers);
-      alert('Thank you! Your estimate request has been received. We will review it and send you a clear estimate within 24 hours.');
-    }
-  });
-
-  if (backBtn) {
-    backBtn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        showStep(currentStep - 1);
-      }
-    });
-  }
-
-  updateProgressDots();
 });
