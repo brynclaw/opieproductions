@@ -77,48 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScroll = currentScroll;
   });
 
-  // ==================== PRICING WIZARD ====================
-  const wizardSteps = document.querySelectorAll('.pricing-wizard__step');
-  const progressFill = document.getElementById('progressFill');
-  const stepCount = document.getElementById('stepCount');
-  const backBtn = document.getElementById('backBtn');
-  let currentStep = 1;
-  const totalSteps = 5;
-
-  function showStep(step) {
-    wizardSteps.forEach(s => s.style.display = 'none');
-    const target = document.getElementById('step' + step);
-    if (target) target.style.display = 'block';
-    if (progressFill) progressFill.style.width = (step / totalSteps * 100) + '%';
-    if (stepCount) stepCount.textContent = 'Step ' + step + ' of ' + totalSteps;
-    if (backBtn) backBtn.style.display = step > 1 ? 'inline-flex' : 'none';
-    currentStep = step;
-  }
-
-  // Option click advances to next step
-  document.querySelectorAll('.pricing-wizard__option').forEach(option => {
-    option.addEventListener('click', () => {
-      // Mark selected
-      const siblings = option.parentElement.querySelectorAll('.pricing-wizard__option');
-      siblings.forEach(s => s.classList.remove('pricing-wizard__option--selected'));
-      option.classList.add('pricing-wizard__option--selected');
-
-      // Advance after short delay
-      setTimeout(() => {
-        if (currentStep < totalSteps) {
-          showStep(currentStep + 1);
-        }
-      }, 300);
+  // ==================== PRICING QUIZ PILLS ====================
+  document.querySelectorAll('.pricing-quiz__pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const group = pill.getAttribute('data-group');
+      document.querySelectorAll('.pricing-quiz__pill[data-group="' + group + '"]')
+        .forEach(p => p.classList.remove('pricing-quiz__pill--selected'));
+      pill.classList.add('pricing-quiz__pill--selected');
     });
   });
-
-  if (backBtn) {
-    backBtn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        showStep(currentStep - 1);
-      }
-    });
-  }
 
   // ==================== APPROACH ACCORDION ====================
   const approachSteps = document.querySelectorAll('.approach__step');

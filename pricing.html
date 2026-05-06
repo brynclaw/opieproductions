@@ -7,9 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,19 +15,18 @@
   <nav class="nav">
     <div class="nav__left">
       <a href="index.html" class="nav__logo">
-        <img src="images/footer-logo.png" alt="Opie Productions logo" class="nav__logo-icon" width="38" height="38">
+        <svg class="nav__logo-icon" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="19" cy="19" r="18" stroke="#21cafe" stroke-width="2"/>
+          <path d="M12 19c0-3.866 3.134-7 7-7s7 3.134 7 7-3.134 7-7 7" stroke="#21cafe" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="19" cy="19" r="3" fill="#21cafe"/>
+        </svg>
         <span class="nav__logo-text">Opie<br>Productions</span>
       </a>
     </div>
     <div class="nav__links">
       <div class="nav__dropdown">
         <span>Services</span>
-        <svg class="nav__dropdown-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 12l4-4 4 4" stroke="#f0efeb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="nav__dropdown-menu">
-          <a href="web-design.html" class="nav__dropdown-item">Web Design</a>
-          <a href="web-dev.html" class="nav__dropdown-item">Web Development</a>
-          <a href="seo.html" class="nav__dropdown-item">SEO</a>
-        </div>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 12l4-4 4 4" stroke="#f0efeb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <a href="pricing.html">Pricing</a>
       <a href="portfolio.html">Portfolio</a>
@@ -44,93 +40,99 @@
     </div>
   </nav>
 
-  <!-- ==================== PRICING PAGE ==================== -->
-  <section class="pricing-page">
-    <div class="pricing-page__header">
-      <h1 class="pricing-page__heading">How Much Will It Cost?</h1>
-      <p class="pricing-page__subtext">Not sure what your website should cost? Fill out the form below and we'll manually review it (no AI or automation) and send you a clear estimate within 24 hours. The cost will come directly from a leading Denver web design agency – not a generic tool or automated system.</p>
+  <!-- ==================== PRICING QUIZ ==================== -->
+  <section class="pricing-quiz">
+    <div class="pricing-quiz__card">
+      <div class="pricing-quiz__layout">
+        <!-- Left: Questions -->
+        <div class="pricing-quiz__left">
+          <div class="pricing-quiz__header">
+            <h1 class="pricing-quiz__heading">How Much Will It Cost?</h1>
+            <p class="pricing-quiz__subtext">Not sure what your website should cost? Fill out the form below and we'll manually review it (no AI or automation) and send you a clear estimate within 24 hours. The cost will come directly from a leading Denver web design agency – not a generic tool or automated system.</p>
+          </div>
+          <div class="pricing-quiz__divider"></div>
+
+          <div class="pricing-quiz__questions">
+            <!-- Question 1 -->
+            <div class="pricing-quiz__question-group">
+              <h2 class="pricing-quiz__question">Do You Have A Website Already?</h2>
+              <div class="pricing-quiz__pills">
+                <button class="pricing-quiz__pill" data-group="website">No</button>
+                <button class="pricing-quiz__pill" data-group="website">Yes</button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="pricing-quiz__question-group">
+              <h2 class="pricing-quiz__question">When Are You Looking To Start Your Website Project?</h2>
+              <div class="pricing-quiz__pills">
+                <button class="pricing-quiz__pill pricing-quiz__pill--wide" data-group="timeline">Exploring ideas</button>
+                <button class="pricing-quiz__pill pricing-quiz__pill--wide" data-group="timeline">Next 3 to 6 months</button>
+                <button class="pricing-quiz__pill pricing-quiz__pill--wide" data-group="timeline">1 to 3 months</button>
+                <button class="pricing-quiz__pill pricing-quiz__pill--wide" data-group="timeline">Right away</button>
+                <button class="pricing-quiz__pill pricing-quiz__pill--wide" data-group="timeline">Need help finishing</button>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="pricing-quiz__question-group">
+              <h2 class="pricing-quiz__question">Do You Currently Have Branding With Brand Guidelines?</h2>
+              <div class="pricing-quiz__pills">
+                <button class="pricing-quiz__pill" data-group="branding">Not yet</button>
+                <button class="pricing-quiz__pill" data-group="branding">Logo only</button>
+                <button class="pricing-quiz__pill" data-group="branding">Logo with brand guidelines</button>
+                <button class="pricing-quiz__pill" data-group="branding">I require new branding</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Panel -->
+        <div class="pricing-quiz__right"></div>
+      </div>
+
+      <!-- Next Step Button -->
+      <div class="pricing-quiz__action">
+        <a href="#" class="btn btn--orange btn--lg">Next Step</a>
+      </div>
     </div>
 
-    <div class="pricing-wizard">
-      <!-- Progress dots -->
-      <div class="pricing-wizard__progress">
-        <div class="pricing-wizard__progress-dot pricing-wizard__progress-dot--active"></div>
-        <div class="pricing-wizard__progress-dot"></div>
-        <div class="pricing-wizard__progress-dot"></div>
+    <!-- Progress Bar -->
+    <div class="pricing-quiz__progress">
+      <div class="pricing-quiz__progress-bar">
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
+        <span class="pricing-quiz__progress-seg pricing-quiz__progress-seg--active"></span>
       </div>
-
-      <!-- Step 1 -->
-      <div class="pricing-wizard__step" id="step1">
-        <div class="pricing-wizard__step-indicator">[ Step <span>1</span> ]</div>
-        <h2 class="pricing-wizard__question">Do you have a website already?</h2>
-        <div class="pricing-wizard__options">
-          <div class="pricing-wizard__option" data-step="1" data-option="yes">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Yes</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="1" data-option="no">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>No</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="1" data-option="not-yet">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Not yet</span>
-          </div>
-        </div>
+      <div class="pricing-quiz__step-badge">
+        <span class="pricing-quiz__step-num">1</span>
+        <span class="pricing-quiz__step-label">[ Step ]</span>
       </div>
-
-      <!-- Step 2 -->
-      <div class="pricing-wizard__step" id="step2" style="display: none;">
-        <div class="pricing-wizard__step-indicator">[ Step <span>2</span> ]</div>
-        <h2 class="pricing-wizard__question">Do you currently have branding with brand guidelines?</h2>
-        <div class="pricing-wizard__options">
-          <div class="pricing-wizard__option" data-step="2" data-option="logo-guidelines">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Logo with brand guidelines</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="2" data-option="logo-only">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Logo only</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="2" data-option="new-branding">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>I require new branding</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="pricing-wizard__step" id="step3" style="display: none;">
-        <div class="pricing-wizard__step-indicator">[ Step <span>3</span> ]</div>
-        <h2 class="pricing-wizard__question">When are you looking to start your website project?</h2>
-        <div class="pricing-wizard__options">
-          <div class="pricing-wizard__option" data-step="3" data-option="right-away">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Right away</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="3" data-option="exploring">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Exploring ideas</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="3" data-option="help-finishing">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Need help finishing</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="3" data-option="1-3-months">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>1 to 3 months</span>
-          </div>
-          <div class="pricing-wizard__option" data-step="3" data-option="3-6-months">
-            <div class="pricing-wizard__option-radio"></div>
-            <span>Next 3 to 6 months</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation buttons -->
-      <div class="pricing-wizard__nav">
-        <button id="backBtn" class="btn btn--dark" style="display: none;">Back</button>
-        <button id="nextBtn" class="btn btn--cyan">Next Step</button>
+      <div class="pricing-quiz__progress-bar pricing-quiz__progress-bar--remaining">
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
+        <span class="pricing-quiz__progress-seg"></span>
       </div>
     </div>
   </section>
