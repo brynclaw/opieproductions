@@ -4922,9 +4922,11 @@ img {
   font-size: 18px;
   color: var(--muted);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
 .pricing-quiz__pill--wide {
@@ -4941,11 +4943,12 @@ img {
   background-color: var(--cyan);
   border-color: var(--cyan);
   color: var(--dark-text);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(33, 202, 254, 0.3);
 }
 
-.pricing-quiz__action {
-  display: flex;
-  justify-content: center;
+.pricing-quiz__pill:active {
+  transform: scale(0.95);
 }
 
 .btn--lg {
@@ -4978,6 +4981,19 @@ img {
 
 .pricing-quiz__progress-seg--active {
   background-color: var(--cyan);
+  animation: segPulse 0.3s ease-out backwards;
+  box-shadow: 0 0 4px rgba(33, 202, 254, 0.4);
+}
+
+@keyframes segPulse {
+  from {
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
 
 .pricing-quiz__step-badge {
@@ -5002,6 +5018,13 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes badgePop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
 }
 
 .pricing-quiz__step-label {
@@ -5010,6 +5033,139 @@ img {
   font-size: 14px;
   color: var(--muted);
   white-space: nowrap;
+}
+
+/* Site type cards (Step 2) */
+.pricing-quiz__site-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pricing-quiz__site-card {
+  background: transparent;
+  border: 1px solid rgba(116, 126, 123, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.pricing-quiz__site-card:hover {
+  border-color: var(--dark-text);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-quiz__site-card:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.pricing-quiz__site-card--selected {
+  border-color: var(--cyan);
+  background-color: rgba(33, 202, 254, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(33, 202, 254, 0.15);
+}
+
+.pricing-quiz__site-card--selected .pricing-quiz__site-icon svg {
+  filter: drop-shadow(0 0 6px rgba(255, 150, 8, 0.4));
+}
+
+.pricing-quiz__site-icon {
+  margin-bottom: 4px;
+}
+
+.pricing-quiz__site-title {
+  font-family: 'Sewimple Pol', var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--dark-text);
+}
+
+.pricing-quiz__site-desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Domain input (conditional) */
+.pricing-quiz__domain-input {
+  margin-top: 4px;
+  animation: slideDown 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; max-height: 0; transform: translateY(-8px); }
+  to { opacity: 1; max-height: 60px; transform: translateY(0); }
+}
+
+.pricing-quiz__input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border: 1px solid var(--muted);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--dark-text);
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pricing-quiz__input:focus {
+  border-color: var(--cyan);
+}
+
+.pricing-quiz__input::placeholder {
+  color: var(--muted);
+}
+
+/* Step visibility & animation */
+.pricing-quiz__step {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: quizStepIn 0.5s ease-out;
+}
+
+@keyframes quizStepIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Action buttons */
+.pricing-quiz__action {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pricing-quiz__next-btn {
+  animation: btnGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 150, 8, 0); }
+  50% { box-shadow: 0 0 20px 4px rgba(255, 150, 8, 0.25); }
+}
+
+.pricing-quiz__prev-btn {
+  animation: quizStepIn 0.3s ease-out;
 }
 
 @media (max-width: 1200px) {
@@ -5021,6 +5177,7 @@ img {
   .pricing-quiz__right { display: none; }
   .pricing-quiz__card { padding: 40px; }
   .pricing-quiz__heading { font-size: 40px; }
+  .pricing-quiz__site-types { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
