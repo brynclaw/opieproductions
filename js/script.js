@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Stagger-animate child elements
       const activeStep = quizSection.querySelector('.pricing-quiz__step[data-step="' + step + '"]');
       if (activeStep) {
-        const children = activeStep.querySelectorAll('.pricing-quiz__question-group, .pricing-quiz__site-card, .pricing-quiz__header, .pricing-quiz__divider');
+        const children = activeStep.querySelectorAll('.pricing-quiz__question-group, .pricing-quiz__site-card, .pricing-quiz__header, .pricing-quiz__divider, .pricing-quiz__final-left, .pricing-quiz__final-right, .pricing-quiz__final-info, .pricing-quiz__form-fields');
         children.forEach((child, i) => {
           child.style.opacity = '0';
           child.style.transform = 'translateY(15px)';
