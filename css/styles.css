@@ -5129,6 +5129,30 @@ img {
   color: var(--muted);
 }
 
+.pricing-quiz__textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 16px 20px;
+  border: 1px solid var(--muted);
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--dark-text);
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.pricing-quiz__textarea:focus {
+  border-color: var(--cyan);
+}
+
+.pricing-quiz__textarea::placeholder {
+  color: var(--muted);
+}
+
 /* Step visibility & animation */
 .pricing-quiz__step {
   display: flex;

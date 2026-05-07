@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==================== PRICING QUIZ ====================
   const quizSection = document.querySelector('.pricing-quiz');
   if (quizSection) {
-    const TOTAL_STEPS = 2;
+    const TOTAL_STEPS = 5;
     const TOTAL_SEGS = 27;
     let currentStep = 1;
 
@@ -185,9 +185,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.pricing-quiz__pill').forEach(pill => {
       pill.addEventListener('click', () => {
         const group = pill.getAttribute('data-group');
-        document.querySelectorAll('.pricing-quiz__pill[data-group="' + group + '"]')
-          .forEach(p => p.classList.remove('pricing-quiz__pill--selected'));
-        pill.classList.add('pricing-quiz__pill--selected');
+        const isMulti = pill.classList.contains('pricing-quiz__pill--multi');
+
+        if (isMulti) {
+          // Toggle selection for multi-select pills
+          pill.classList.toggle('pricing-quiz__pill--selected');
+        } else {
+          // Single-select: deselect siblings, select this one
+          document.querySelectorAll('.pricing-quiz__pill[data-group="' + group + '"]')
+            .forEach(p => p.classList.remove('pricing-quiz__pill--selected'));
+          pill.classList.add('pricing-quiz__pill--selected');
+        }
 
         // Show domain input when "Yes" is selected for website question
         if (group === 'website') {
