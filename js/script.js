@@ -186,8 +186,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Init progress bar
     buildProgressBar(1);
 
-    // Pill selection
+    // Pill selection with ripple position tracking
     document.querySelectorAll('.pricing-quiz__pill').forEach(pill => {
+      // Track click position for ripple effect
+      pill.addEventListener('mousedown', (e) => {
+        const rect = pill.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        pill.style.setProperty('--ripple-x', x + '%');
+        pill.style.setProperty('--ripple-y', y + '%');
+      });
+
       pill.addEventListener('click', () => {
         const group = pill.getAttribute('data-group');
         const isMulti = pill.classList.contains('pricing-quiz__pill--multi');
@@ -202,6 +211,13 @@ document.addEventListener('DOMContentLoaded', () => {
           pill.classList.add('pricing-quiz__pill--selected');
         }
 
+        // Re-trigger animation on re-select
+        if (pill.classList.contains('pricing-quiz__pill--selected')) {
+          pill.style.animation = 'none';
+          pill.offsetHeight; // force reflow
+          pill.style.animation = '';
+        }
+
         // Show domain input when "Yes" is selected for website question
         if (group === 'website') {
           const domainInput = document.querySelector('.pricing-quiz__domain-input');
@@ -212,12 +228,35 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Site type card selection
+    // Site type card selection with animation retrigger
     document.querySelectorAll('.pricing-quiz__site-card').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.pricing-quiz__site-card')
           .forEach(c => c.classList.remove('pricing-quiz__site-card--selected'));
         card.classList.add('pricing-quiz__site-card--selected');
+        // Re-trigger the cardSelect animation
+        card.style.animation = 'none';
+        card.offsetHeight;
+        card.style.animation = '';
+      });
+    });
+
+    // Input focus micro-interaction: subtle label shift
+    document.querySelectorAll('.pricing-quiz__input, .pricing-quiz__textarea, .pricing-quiz__input--full').forEach(input => {
+      input.addEventListener('focus', () => {
+        const label = input.previousElementSibling;
+        if (label && label.classList.contains('pricing-quiz__question')) {
+          label.style.transition = 'color 0.3s ease, transform 0.3s ease';
+          label.style.color = '#21cafe';
+          label.style.transform = 'translateX(4px)';
+        }
+      });
+      input.addEventListener('blur', () => {
+        const label = input.previousElementSibling;
+        if (label && label.classList.contains('pricing-quiz__question')) {
+          label.style.color = '';
+          label.style.transform = '';
+        }
       });
     });
   }
