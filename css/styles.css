@@ -4851,10 +4851,172 @@ img {
 }
 
 .pricing-quiz__right {
-  width: 550px;
+  width: 400px;
   flex-shrink: 0;
-  background: #fff;
-  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing-quiz__illustration {
+  width: 100%;
+  max-width: 300px;
+  animation: illusFadeIn 0.6s ease-out;
+}
+
+.pricing-quiz__illustration svg {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes illusFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Floating animation */
+.illus-float {
+  animation: illusFloat 4s ease-in-out infinite;
+}
+
+@keyframes illusFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.illus-float-sm {
+  animation: illusFloatSm 3s ease-in-out infinite;
+}
+
+@keyframes illusFloatSm {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Pulse animations */
+.illus-pulse {
+  animation: illusPulse 2s ease-in-out infinite;
+}
+
+@keyframes illusPulse {
+  0%, 100% { opacity: 0.6; r: inherit; }
+  50% { opacity: 1; }
+}
+
+.illus-pulse-slow {
+  animation: illusPulse 3.5s ease-in-out infinite;
+}
+
+/* Line reveal */
+.illus-line { animation: illusLineReveal 0.8s ease-out backwards; }
+.illus-line--1 { animation-delay: 0.2s; }
+.illus-line--2 { animation-delay: 0.35s; }
+.illus-line--3 { animation-delay: 0.5s; }
+.illus-line--4 { animation-delay: 0.65s; }
+.illus-line--5 { animation-delay: 0.8s; }
+.illus-line--6 { animation-delay: 0.95s; }
+
+@keyframes illusLineReveal {
+  from { transform: scaleX(0); transform-origin: left; opacity: 0; }
+  to { transform: scaleX(1); transform-origin: left; opacity: 1; }
+}
+
+/* Check mark draw */
+.illus-draw {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: illusDraw 0.8s ease-out 0.6s forwards;
+}
+
+@keyframes illusDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Check fill */
+.illus-check {
+  animation: illusCheckFill 0.6s ease-out 0.4s backwards;
+}
+
+@keyframes illusCheckFill {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Gear spin */
+.illus-spin {
+  animation: illusSpin 12s linear infinite;
+}
+
+@keyframes illusSpin {
+  to { transform: rotate(360deg); }
+}
+
+.illus-spin-reverse {
+  animation: illusSpinReverse 8s linear infinite;
+}
+
+@keyframes illusSpinReverse {
+  to { transform: rotate(-360deg); }
+}
+
+/* Dashed line animation */
+.illus-dash {
+  stroke-dashoffset: 0;
+  animation: illusDash 2s linear infinite;
+}
+
+@keyframes illusDash {
+  to { stroke-dashoffset: -16; }
+}
+
+/* Cursor blink */
+.illus-cursor {
+  animation: illusCursorMove 3s ease-in-out infinite;
+}
+
+@keyframes illusCursorMove {
+  0%, 100% { transform: translate(0, 0); }
+  30% { transform: translate(-40px, -20px); }
+  60% { transform: translate(10px, 15px); }
+}
+
+/* Rocket animations */
+.illus-rocket {
+  animation: illusRocketHover 3s ease-in-out infinite;
+}
+
+@keyframes illusRocketHover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.illus-flame {
+  animation: illusFlame 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes illusFlame {
+  from { transform: scaleY(0.85) scaleX(0.9); transform-origin: center top; }
+  to { transform: scaleY(1.1) scaleX(1.1); transform-origin: center top; }
+}
+
+/* Twinkle stars */
+.illus-twinkle {
+  animation: illusTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes illusTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Particle drift */
+.illus-particle {
+  animation: illusParticle 2.5s ease-out infinite;
+}
+
+@keyframes illusParticle {
+  0% { opacity: 0.3; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(20px) scale(0.3); }
 }
 
 .pricing-quiz__header {
@@ -5271,8 +5433,8 @@ img {
 }
 
 @media (max-width: 1200px) {
-  .pricing-quiz__right { width: 350px; }
   .pricing-quiz__pill--wide { width: auto; }
+  .pricing-quiz__right { width: 280px; }
 }
 
 @media (max-width: 1024px) {
@@ -5282,6 +5444,10 @@ img {
   .pricing-quiz__site-types { grid-template-columns: 1fr; }
   .pricing-quiz__pills--grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-quiz__final-layout { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .pricing-quiz__pills--grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {

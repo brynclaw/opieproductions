@@ -128,6 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show/hide prev button
       if (prevBtn) prevBtn.style.display = step > 1 ? 'inline-flex' : 'none';
 
+      // Swap illustrations
+      quizSection.querySelectorAll('.pricing-quiz__illustration').forEach(illus => {
+        illus.style.display = parseInt(illus.getAttribute('data-illus')) === step ? 'block' : 'none';
+      });
+
       // Update next button text
       if (nextBtn) {
         nextBtn.textContent = step === TOTAL_STEPS ? 'Request My Estimate' : 'Next Step';
